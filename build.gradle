@@ -1,0 +1,41 @@
+apply plugin: 'java'
+//apply plugin: 'scala'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.6'
+}
+
+defaultTasks 'jar'
+
+description = 'SWAG Toolkit'
+sourceCompatibility = 1.7
+
+sourceSets {
+  main {
+    output.resourcesDir = output.classesDir
+  }
+  test {
+    output.resourcesDir = output.classesDir
+  }
+  demo {
+    output.resourcesDir = output.classesDir
+    compileClasspath += sourceSets.main.runtimeClasspath
+  }
+}
+
+jar {
+  baseName 'no_swag'
+  manifest {
+    attributes 'Implementation-Title': project.description
+  }
+  from sourceSets.demo.output // include demos
+  from sourceSets.test.output // include tests
+}
+
+javadoc {
+  title = project.description
+}
+
+dependencies {
+  compile fileTree('libs') // contains jars provided with the Mines JTK
+}
