@@ -1,19 +1,23 @@
 package no.swag.nsa.crypto;
 
-public class Blowfish extends Crypto {
 
-  public Blowfish(String password){
-    super(password, "Blowfish");    
+public class DES extends Crypto {
+  
+  public DES(String password){
+    super(password, "DES");
   }
 
   public static void main(String[] args) {  
-    Blowfish b = new Blowfish("password");  
-    String textToEncrypt = "Blowfish Algorithm";  
+    DES b = new DES("password");  
+    String textToEncrypt = "DES Algorithm";  
     System.out.println("Text before Encryption: " + textToEncrypt);  
     String cipherText = b.encrypt(textToEncrypt);  
     System.out.println("Cipher Text: " + cipherText);  
     System.out.println("Text after Decryption: " + b.decrypt(cipherText)); 
-    // Blowfish c = new Blowfish("password");
+    // DES c = new DES("password");
     // System.out.println("Text after Decryption2: " + c.decrypt(cipherText)); 
   }
+
+
+  
 }
