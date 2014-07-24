@@ -90,6 +90,36 @@ public class Crypto {
       return plainText;  
     } 
 
+    public byte[] encrypt(byte[] plainBytes){
+      byte[] cipherBytes = null;  
+      try {    
+        cipher.init(Cipher.ENCRYPT_MODE, key);  
+        cipherBytes = cipher.doFinal(plainBytes);
+      } catch (IllegalBlockSizeException ex) {  
+        System.out.println(ex);  
+      } catch (BadPaddingException ex) {  
+        System.out.println(ex);  
+      } catch (InvalidKeyException ex) {  
+        System.out.println(ex);  
+      }  
+      return cipherBytes;  
+    }
+
+    public byte[] decrypt(byte[] cipherBytes){
+      byte[] plainBytes = null;  
+      try {  
+        cipher.init(Cipher.DECRYPT_MODE, key);  
+        plainBytes = cipher.doFinal(cipherBytes);  
+      } catch (IllegalBlockSizeException ex) {  
+        System.out.println(ex);  
+      } catch (BadPaddingException ex) {  
+        System.out.println(ex);  
+      } catch (InvalidKeyException ex) { 
+        System.out.println(ex); 
+      }  
+      return plainBytes; 
+    }
+
   /** 
   *  
   * @param rawText 
@@ -97,7 +127,7 @@ public class Crypto {
   * 
   * Perform Base64 encoding 
   */  
-  public String bytesToString(byte[] rawText) {  
+  public static String bytesToString(byte[] rawText) {  
     String plainText = null;  
     plainText = Base64.encodeBase64String(rawText);  
     return plainText;  
@@ -110,7 +140,7 @@ public class Crypto {
   * 
   * Perform Base64 decoding 
   */  
-  public byte[] stringToBytes(String plainText) {  
+  public static byte[] stringToBytes(String plainText) {  
     byte[] rawText = null;  
     rawText = Base64.decodeBase64(plainText);  
     return rawText;  

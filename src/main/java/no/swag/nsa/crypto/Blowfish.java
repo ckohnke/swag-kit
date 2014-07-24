@@ -10,7 +10,7 @@ public class Blowfish extends Crypto {
     Blowfish b = new Blowfish("password");  
     String textToEncrypt = "Blowfish Algorithm";  
     System.out.println("Text before Encryption: " + textToEncrypt);  
-    String cipherText = b.encrypt(textToEncrypt);  
+    String cipherText = b.encrypt(textToEncrypt);
     System.out.println("Cipher Text: " + cipherText);  
     System.out.println("Text after Decryption: " + b.decrypt(cipherText)); 
     // Blowfish c = new Blowfish("password");
