@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '1.6'
+  gradleVersion = '2.3'
 }
 
 defaultTasks 'jar'
@@ -37,5 +37,5 @@ javadoc {
 }
 
 dependencies {
-  compile fileTree('libs') // contains jars provided with the Mines JTK
+  compile fileTree('libs') // contains jars provided with the swag toolkit.
 }
