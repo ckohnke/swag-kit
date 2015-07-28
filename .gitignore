@@ -4,6 +4,7 @@
 /.pydevproject
 /.idea
 /.gradle
+/.settings
 
 build/
 *.iml
